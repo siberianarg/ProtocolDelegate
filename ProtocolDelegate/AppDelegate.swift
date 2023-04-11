@@ -7,7 +7,7 @@
 
 import UIKit
 
-@main
+c@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 

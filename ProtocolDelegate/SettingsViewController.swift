@@ -1,12 +1,15 @@
 
 import UIKit
 
+//create a protocol SettingsViewControllerDelegate it's our boss
 protocol SettingsViewControllerDelegate {
+    //what can our boss tell for the workers
     func didChange(_ profile: Profile)
 }
 
 class SettingsViewController: UIViewController {
     
+    //add optional variable - delegate
     var delegate: SettingsViewControllerDelegate?
     
     
@@ -15,6 +18,7 @@ class SettingsViewController: UIViewController {
     @objc fileprivate func saveBarButtonItemTapped() {
         let profile = Profile(icon: "icon\(UserDefaults.standard.integer(forKey: kIconButton))", accentColor: colors[UserDefaults.standard.integer(forKey: kColorButton)], name: nameTextField.text ?? "", info: infoTextField.text ?? "")
         print(profile)
+        //call the delegate
         delegate?.didChange(profile)
         
         navigationController?.popViewController(animated: true)

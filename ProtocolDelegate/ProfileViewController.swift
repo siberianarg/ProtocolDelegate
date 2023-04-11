@@ -9,8 +9,10 @@ class ProfileViewController: UIViewController{
     lazy var settingsBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .done, target: self, action: #selector(settingsBarButtonItemTapped))
     
     @objc fileprivate func settingsBarButtonItemTapped() {
+        //create our controller
         let controller = SettingsViewController()
         
+        //set delegate for this controller
         controller.delegate = self
         navigationController?.pushViewController(controller, animated: true)
     }
@@ -85,9 +87,11 @@ class ProfileViewController: UIViewController{
     }
 
 }
-
+//MARK: - extension ProfileViewController
 extension ProfileViewController: SettingsViewControllerDelegate {
     func didChange(_ profile: Profile) {
+        //did conform to the protocol delegate
+        //but we are still not listening to it
         apply(profile)
     }
 }
